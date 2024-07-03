@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css"/>
+    </head>
+    <body>
+        <header>
+            <h1>Ecommerce</h1>
+        </header>
+        <nav>
+            <a href="index.html" onclick="setActiveMenu('home')">Home</a>
+            <a href="prod.html" target="centro" onclick="setActiveMenu('prod')">Produtos</a>
+            <a href="cat.html" target="centro" onclick="setActiveMenu('cat')" >Categorias</a>
+            <a href="sobre.html" target="centro" onclick="setActiveMenu('sobre')">Sobre</a>
+            <a href="Contato.html" target="centro" onclick="setActiveMenu('contato')">Contato</a>
+            <a href="Carrinho.html" target="centro" onclick="setActiveMenu('carrinho')">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7 18C7.55228 18 8 17.5523 8 17C8 16.4477 7.55228 16 7 16C6.44772 16 6 16.4477 6 17C6 17.5523 6.44772 18 7 18Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M17 18C17.5523 18 18 17.5523 18 17C18 16.4477 17.5523 16 17 16C16.4477 16 16 16.4477 16 17C16 17.5523 16.4477 18 17 18Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M1 1H5L7.68 14.39C7.79174 14.9578 8.13649 15.4517 8.64223 15.784C9.14797 16.1163 9.77813 16.2672 10.42 16.2H18.57C19.2119 16.2672 19.842 16.1163 20.3478 15.784C20.8535 15.4517 21.1983 14.9578 21.31 14.39L23 6H6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+        </nav>
+        <script>
+        function setActiveMenu(menu) {
+            const links = document.querySelectorAll('nav a');
+            links.forEach(link => link.classList.remove('active'));
+            document.querySelector(`nav a[onclick*='${menu}']`).classList.add('active');
+        }
+         document.addEventListener('DOMContentLoaded', function () {
+            const currentLocation = window.location.href;
+            const menuItems = document.querySelectorAll('nav a');
+            menuItems.forEach(item => {
+                if (item.href === currentLocation) {
+                    item.classList.add('active');
+                }
+            });
+
+            // Define 'active' para a página inicial se for a URL atual
+            if (currentLocation.includes('index.html')) {
+                document.getElementById('home-link').classList.add('active');
+            }
+        });
+    </script>
+        <main>
+            <iframe src="apresentacao.html" name="centro">
+            
+                </iframe>
+        </main>
+        <footer>
+            <p>
+                © 2024 by Adriano Barbosa
+            </p>
+        </footer>
+    </body>
+</html>
